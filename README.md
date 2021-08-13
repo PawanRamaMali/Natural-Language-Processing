@@ -52,3 +52,8 @@ And yet we can easily understand each other most of the time.
 * Whether the language is spoken or written, natural language processing uses artificial intelligence to take real-world input, process it, and make sense of it in a way a computer can understand.
 * Just as humans have different sensors -- such as ears to hear and eyes to see -- computers have programs to read and microphones to collect audio. And just as humans have a brain to process that input, computers have a program to process their respective inputs. At some point in processing, the input is converted to code that the computer can understand.
 
+## Sources and Credits 
+
+* [What Is Natural Language Processing? by Jason Brownlee on September 22, 2017](https://machinelearningmastery.com/natural-language-processing/)
+* [Natural language processing (NLP) by Ben Lutkevich, Technical Writer](https://searchenterpriseai.techtarget.com/definition/natural-language-processing-NLP)
+* [Diego Lopez Yse Reshaping with technology](https://towardsdatascience.com/your-guide-to-natural-language-processing-nlp-48ea2511f6e1) 
