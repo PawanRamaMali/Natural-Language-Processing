@@ -1,6 +1,10 @@
 
 # History of NLP
 
+NLP stands for Natural Language Processing, which is a part of Computer Science, Human language, and Artificial Intelligence. 
+It is the technology that is used by machines to understand, analyse, manipulate, and interpret human's languages. 
+It helps developers to organize knowledge for performing tasks such as translation, automatic summarization, Named Entity Recognition (NER), speech recognition, relationship extraction, and topic segmentation.
+
 ![image](https://user-images.githubusercontent.com/11299574/129455345-9f2a167b-1446-4895-9c09-4a073fb8f591.png)
 
 [Image Source](https://www.xenonstack.com/blog/evolution-of-nlp) 
