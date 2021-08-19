@@ -13,15 +13,14 @@
   * Lemmatization and stemming - This is when words are reduced to their root forms to process.
   * Part-of-speech tagging - This is when words are marked based on the part-of speech they are -- such as nouns, verbs and adjectives.
 
-Once the data has been preprocessed, an algorithm is developed to process it. There are many different natural language processing algorithms, but two main types are commonly used:
+ * Once the data has been preprocessed, an algorithm is developed to process it. There are many different natural language processing algorithms, but two main types are commonly used:
+   * Rules-based system. 
+     * This system uses carefully designed linguistic rules. 
+     * This approach was used early on in the development of natural language processing, and is still used.
 
-  * Rules-based system. 
-   * This system uses carefully designed linguistic rules. 
-   * This approach was used early on in the development of natural language processing, and is still used.
-
- * Machine learning-based system. 
-   * Machine learning algorithms use statistical methods. 
-   * They learn to perform tasks based on training data they are fed, and adjust their methods as more data is processed. 
+   * Machine learning-based system. 
+     * Machine learning algorithms use statistical methods. 
+     * They learn to perform tasks based on training data they are fed, and adjust their methods as more data is processed. 
    * Using a combination of machine learning, deep learning and neural networks, natural language processing algorithms hone their own rules through repeated processing and learning.
 
 
