@@ -3,6 +3,9 @@
 * NLP Life cycle
 * Reading text data
 * Text processing
+
+There are two main phases to natural language processing: data preprocessing and algorithm development.
+
 * Text to features
 * Text exploration
 
@@ -31,4 +34,5 @@ print nouns
 * Topic modelling
 * Sentiment analysis
 * Word sense disambiguation
+
 
