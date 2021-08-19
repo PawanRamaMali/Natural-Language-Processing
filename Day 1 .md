@@ -21,7 +21,7 @@
    * Machine learning-based system. 
      * Machine learning algorithms use statistical methods. 
      * They learn to perform tasks based on training data they are fed, and adjust their methods as more data is processed. 
-   * Using a combination of machine learning, deep learning and neural networks, natural language processing algorithms hone their own rules through repeated processing and learning.
+     * Using a combination of machine learning, deep learning and neural networks, natural language processing algorithms hone their own rules through repeated processing and learning.
 
 
 * Text to features
