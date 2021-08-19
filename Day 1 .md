@@ -4,7 +4,9 @@
 * Reading text data
 * Text processing
 
-There are two main phases to natural language processing: data preprocessing and algorithm development.
+  * There are two main phases to natural language processing: data preprocessing and algorithm development.
+    *  Data preprocessing involves preparing and "cleaning" text data for machines to be able to analyze it. 
+    *  Preprocessing puts data in workable form and highlights features in the text that an algorithm can work with.
 
 * Text to features
 * Text exploration
