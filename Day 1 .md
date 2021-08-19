@@ -1,7 +1,7 @@
 ## Introduction to NLP :
 
 * NLP Life cycle
-* Reading text data
+* Reading text data [Link](https://github.com/PawanRamaMali/Natural-Language-Processing/blob/d85cddb1ed12b223472b5ddea6273e05b3fb8f0e/NLP%20Code/02%20Reading%20in%20text%20data.md) 
 * Text processing
 
   * There are two main phases to natural language processing: data preprocessing and algorithm development.
