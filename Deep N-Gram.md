@@ -210,3 +210,12 @@ print(GRUmodel)
 print(LSTMmodel)
 print(SRUmodel)
 ```
+
+# Hyperparameters
+
+Here, we declare the batch_size and the max_length hyperparameters for the model.
+
+```
+batch_size = 32
+max_length = 64
+```
