@@ -226,3 +226,59 @@ max_length = 64
 eval_lines = lines[-1000:] # Create a holdout validation set
 lines = lines[:-1000] # Leave the rest for training
 ```
+
+# Training the Models
+
+Here, we create a function to train the models. This function does the following:
+
+Creating a Train and Evaluation Generator that cycles infinetely using the itertools module
+Train the Model using Adam Optimizer
+Use the Accuracy Metric for Evaluation
+
+```
+from trax.supervised import training
+import itertools
+
+def train_model(model, data_generator, batch_size=32, max_length=64, lines=lines, eval_lines=eval_lines, n_steps=10, output_dir = 'model/'): 
+
+    
+    bare_train_generator = data_generator(batch_size, max_length, data_lines=lines)
+    infinite_train_generator = itertools.cycle(bare_train_generator)
+    
+    bare_eval_generator = data_generator(batch_size, max_length, data_lines=eval_lines)
+    infinite_eval_generator = itertools.cycle(bare_eval_generator)
+   
+    train_task = training.TrainTask(
+        labeled_data=infinite_train_generator, 
+        loss_layer=tl.CrossEntropyLoss(),   
+        optimizer=trax.optimizers.Adam(0.0005)  
+    )
+
+    eval_task = training.EvalTask(
+        labeled_data=infinite_eval_generator,    
+        metrics=[tl.CrossEntropyLoss(), tl.Accuracy()],
+        n_eval_batches=3    
+    )
+    
+    training_loop = training.Loop(model,
+                                  train_task,
+                                  eval_tasks=[eval_task],
+                                  output_dir = output_dir
+                                  )
+
+    training_loop.run(n_steps=n_steps)
+    
+    return training_loop
+```
+
+```
+GRU_training_loop = train_model(GRUmodel, data_generator,n_steps=10, output_dir = 'model/GRU')
+```
+
+```
+LSTM_training_loop = train_model(LSTMmodel, data_generator, n_steps = 10, output_dir = 'model/LSTM')
+```
+
+```
+SRU_training_loop = train_model(SRUmodel, data_generator, n_steps = 10, output_dir = 'model/SRU')
+```
