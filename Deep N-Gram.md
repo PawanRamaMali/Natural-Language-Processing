@@ -219,3 +219,10 @@ Here, we declare the batch_size and the max_length hyperparameters for the model
 batch_size = 32
 max_length = 64
 ```
+
+# Creating Evaluation and Training Dataset
+
+```
+eval_lines = lines[-1000:] # Create a holdout validation set
+lines = lines[:-1000] # Leave the rest for training
+```
