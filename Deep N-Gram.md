@@ -156,3 +156,26 @@ def GRULM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
     )
     return model
 ```
+
+
+# Long Short Term Memory
+
+This function generates a LSTM Language Model, consisting of the following layers:
+
+ShiftRight()
+Embedding()
+LSTM Units(Number specified by the n_layers parameter)
+Dense() Layer
+LogSoftmax() Activation
+
+```
+def LSTMLM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
+    model = tl.Serial(
+      tl.ShiftRight(mode=mode),                                 
+      tl.Embedding( vocab_size = vocab_size, d_feature = d_model), 
+      [tl.LSTM(n_units=d_model) for _ in range(n_layers)], 
+      tl.Dense(n_units = vocab_size), 
+      tl.LogSoftmax() 
+    )
+    return model
+```
