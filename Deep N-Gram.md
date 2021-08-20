@@ -179,3 +179,34 @@ def LSTMLM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
     )
     return model
 ```
+
+# Simple Recurrent Unit
+
+This function generates a SRU Language Model, consisting of the following layers:
+
+ShiftRight()
+Embedding()
+SRU Units(Number specified by the n_layers parameter)
+Dense() Layer
+LogSoftmax() Activation
+
+```
+def SRULM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
+    model = tl.Serial(
+      tl.ShiftRight(mode=mode),                                 
+      tl.Embedding( vocab_size = vocab_size, d_feature = d_model), 
+      [tl.SRU(n_units=d_model) for _ in range(n_layers)], 
+      tl.Dense(n_units = vocab_size), 
+      tl.LogSoftmax() 
+    )
+    return model
+```
+
+```
+GRUmodel = GRULM(n_layers = 5)
+LSTMmodel = LSTMLM(n_layers = 5)
+SRUmodel = SRULM(n_layers = 5)
+print(GRUmodel)
+print(LSTMmodel)
+print(SRUmodel)
+```
