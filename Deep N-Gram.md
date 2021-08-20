@@ -72,3 +72,63 @@ def line_to_tensor(line, EOS_int=1):
 
     return tensor
 ```
+
+## Creating a Batch Generator
+
+Here, we create a batch_generator() function to yield a batch and mask generator. We perform the following steps:
+
+* Shuffle the lines if not shuffled
+* Convert the lines into a Tensor
+* Pad the lines if it's less than the maximum length
+* Generate a mask
+
+```
+
+def data_generator(batch_size, max_length, data_lines, line_to_tensor=line_to_tensor, shuffle=True):
+    
+    index = 0                         
+    cur_batch = []                    
+    num_lines = len(data_lines)       
+    lines_index = [*range(num_lines)] 
+
+    if shuffle:
+        rnd.shuffle(lines_index)
+    
+    while True:
+        
+        if index >= num_lines:
+            index = 0
+            if shuffle:
+                rnd.shuffle(lines_index)
+            
+        line = data_lines[lines_index[index]] 
+        
+        if len(line) < max_length:
+            cur_batch.append(line)
+            
+        index += 1
+        
+        if len(cur_batch) == batch_size:
+            
+            batch = []
+            mask = []
+            
+            for li in cur_batch:
+
+                tensor = line_to_tensor(li)
+
+                pad = [0] * (max_length - len(tensor))
+                tensor_pad = tensor + pad
+                batch.append(tensor_pad)
+
+                example_mask = [0 if t == 0 else 1 for t in tensor_pad]
+                mask.append(example_mask)
+               
+            batch_np_arr = np.array(batch)
+            mask_np_arr = np.array(mask)
+            
+            
+            yield batch_np_arr, batch_np_arr, mask_np_arr
+            
+            cur_batch = []
+```
