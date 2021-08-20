@@ -162,11 +162,11 @@ def GRULM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
 
 This function generates a LSTM Language Model, consisting of the following layers:
 
-ShiftRight()
-Embedding()
-LSTM Units(Number specified by the n_layers parameter)
-Dense() Layer
-LogSoftmax() Activation
+* ShiftRight()
+* Embedding()
+* LSTM Units(Number specified by the n_layers parameter)
+* Dense() Layer
+* LogSoftmax() Activation
 
 ```
 def LSTMLM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
@@ -184,11 +184,11 @@ def LSTMLM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
 
 This function generates a SRU Language Model, consisting of the following layers:
 
-ShiftRight()
-Embedding()
-SRU Units(Number specified by the n_layers parameter)
-Dense() Layer
-LogSoftmax() Activation
+* ShiftRight()
+* Embedding()
+* SRU Units(Number specified by the n_layers parameter)
+* Dense() Layer
+* LogSoftmax() Activation
 
 ```
 def SRULM(vocab_size=256, d_model=512, n_layers=2, mode='train'):
@@ -231,9 +231,9 @@ lines = lines[:-1000] # Leave the rest for training
 
 Here, we create a function to train the models. This function does the following:
 
-Creating a Train and Evaluation Generator that cycles infinetely using the itertools module
-Train the Model using Adam Optimizer
-Use the Accuracy Metric for Evaluation
+* Creating a Train and Evaluation Generator that cycles infinetely using the itertools module
+* Train the Model using Adam Optimizer
+* Use the Accuracy Metric for Evaluation
 
 ```
 from trax.supervised import training
