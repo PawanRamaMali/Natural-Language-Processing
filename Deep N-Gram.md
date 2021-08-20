@@ -19,3 +19,29 @@ import random as rnd
 from trax import fastmath
 from trax import layers as tl
 ```
+
+
+# Loading the Data
+
+For this project, I've used the gothic-literature, shakespeare-plays and shakespeareonline datasets from the Kaggle library.
+
+We perform the following steps for loading in the data:
+
+Iterate over all the directories in the /kaggle/input/ directory
+Filter out .txt files
+Make a lines list containing the individual lines from all the datasets combined
+
+```
+directories = os.listdir('/kaggle/input/')
+lines = []
+for directory in directories:
+    for filename in os.listdir(os.path.join('/kaggle/input',directory)):
+        if filename.endswith(".txt"):
+            with open(os.path.join(os.path.join('/kaggle/input',directory), filename)) as files:
+                for line in files: 
+                    processed_line = line.strip()
+                    if processed_line:
+                        lines.append(processed_line)
+                       
+```
+
