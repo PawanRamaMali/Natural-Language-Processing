@@ -45,3 +45,13 @@ for directory in directories:
                        
 ```
 
+# Pre-Processing
+
+## Converting to Lowercase
+
+Converting all the characters in the lines list to lowercase.
+
+```
+for i, line in enumerate(lines):
+    lines[i] = line.lower()
+```
