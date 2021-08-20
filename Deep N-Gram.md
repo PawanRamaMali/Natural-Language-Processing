@@ -55,3 +55,20 @@ Converting all the characters in the lines list to lowercase.
 for i, line in enumerate(lines):
     lines[i] = line.lower()
 ```
+
+## Converting into Tensors
+
+Creating a function to convert each line into a tensor by converting each character into it's ASCII value. And adding a optional EOS(End of statement) character.
+
+```
+def line_to_tensor(line, EOS_int=1):
+    
+    tensor = []
+    for c in line:
+        c_int = ord(c)
+        tensor.append(c_int)
+    
+    tensor.append(EOS_int)
+
+    return tensor
+```
