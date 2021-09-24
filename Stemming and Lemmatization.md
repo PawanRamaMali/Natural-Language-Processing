@@ -146,3 +146,61 @@ Lemma for studying is studying
 Lemma for cries is cry
 Lemma for cry is cry
 ```
+
+
+### Discussion of Output
+
+If you look stemming for studies and studying, output is same (studi) but NLTK lemmatizer provides different lemma for both tokens study for studies and studying for studying. So when we need to make feature set to train machine, it would be great if lemmatization is preferred.
+
+### Use Case of Lemmatizer
+
+Lemmatizer minimizes text ambiguity. Example words like bicycle or bicycles are converted to base word bicycle. Basically, it will convert all words having the same meaning but different representation to their base form. It reduces the word density in the given text and helps in preparing the accurate features for training machine. Cleaner the data, the more intelligent and accurate your machine learning model, will be. NLTK Lemmatizer will also saves memory as well as computational cost.
+
+### Real Time example showing use of Wordnet Lemmatization and POS Tagging in Python
+
+
+```
+from nltk.corpus import wordnet as wn
+	from nltk.stem.wordnet import WordNetLemmatizer
+	from nltk import word_tokenize, pos_tag
+	from collections import defaultdict
+	tag_map = defaultdict(lambda : wn.NOUN)
+	tag_map['J'] = wn.ADJ
+	tag_map['V'] = wn.VERB
+	tag_map['R'] = wn.ADV
+
+	text = "This is a totally new kind of learning experience."
+	tokens = word_tokenize(text)
+	lemma_function = WordNetLemmatizer()
+	for token, tag in pos_tag(tokens):
+		lemma = lemma_function.lemmatize(token, tag_map[tag[0]])
+		print(token, "=>", lemma)
+```
+
+### Code Explanation
+
+* Firstly, the corpus reader wordnet is imported.
+* WordNetLemmatizer is imported from wordnet.
+* Word tokenize as well as parts of speech tag are imported from nltk.
+* Default Dictionary is imported from collections.
+* Dictionary is created where pos_tag (first letter) are the key values whose values are mapped with the value from wordnet dictionary. We have taken the only first letter as we will use it later in the loop.
+* Text is written and is tokenized.
+* Object lemma_function is created which will be used inside the loop.
+* Loop is run and lemmatize will take two arguments one is token and other is a mapping of pos_tag with wordnet value.
+
+Output
+```
+This => This				
+is => be				
+totally => totally				
+new => new				
+kind => kind				
+of => of				
+learning => learn				
+experience => experience				
+. => .	
+```
+
+#### Source
+
+* [Guru99 Article](https://www.guru99.com/stemming-lemmatization-python-nltk.html) 
